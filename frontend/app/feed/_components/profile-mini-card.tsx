@@ -6,7 +6,6 @@ import { LogOut, MoreHorizontal, User, LogIn } from "lucide-react";
 import { useUser } from "@/app/context/user-context";
 import { apiClient } from "@/app/lib/api-client";
 import { useRouter } from "next/navigation";
-import UserAvatar from "./user-avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import UserAvatarWrapper from "@/app/components/user-avatar-wrapper";
 
 interface MenuContentProps {
   onLogout: () => Promise<void>;
@@ -42,7 +42,7 @@ export default function ProfileMiniCard() {
 
   return (
     <div className="flex items-center gap-3 p-2 hover:bg-slate-200 rounded-xl transition-all duration-200 group w-full">
-      <UserAvatar size="md" />
+      <UserAvatarWrapper size="lg" />
 
       <div className="flex-1 min-w-0 leading-tight">
         <p className="text-sm font-semibold text-slate-900 truncate">

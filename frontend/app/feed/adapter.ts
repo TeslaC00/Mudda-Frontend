@@ -51,6 +51,7 @@ export function adaptIssueFeedDTO(dto: IssueFeedDTO): IssueCardProps {
     address: mockAddress,
     hasVoted: dto.has_user_voted,
     canVote: dto.can_user_vote,
+    following: false,
   };
 }
 
@@ -70,6 +71,7 @@ export function adaptIssueDetailDTO(dto: IssueDetailDTO): IssueDetailData {
     images: dto.media_urls,
     hasVoted: dto.has_user_voted,
     canVote: dto.can_user_vote,
+    following: false,
 
     desc: dto.description,
     category: dto.category,
@@ -94,12 +96,13 @@ export function adaptCommentDTO(dto: CommentDTO): CommentData {
   const authorId = Math.floor(
     getStableRandom(dto.author_id) / mockAuthorNames.length,
   );
+
   const mockAuthorName = mockAuthorNames[authorId];
   const mockReplies: CommentData[] =
     dto.reply_count === 0
       ? []
-      : Array.from({ length: dto.reply_count }, () => ({
-          id: 8,
+      : Array.from({ length: dto.reply_count }, (_, index) => ({
+          id: index,
           authorName: "Arjun Singh",
           content: "Thanks! Please share it.",
           createdAt: "4h ago",

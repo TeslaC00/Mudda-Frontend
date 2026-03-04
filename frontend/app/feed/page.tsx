@@ -9,7 +9,7 @@ import FeedStream from "./_components/feed-stream";
 import { getIssueFeed } from "./service";
 
 export default async function Feed() {
-  const issues = await getIssueFeed();
+  const initialFeed = await getIssueFeed();
 
   return (
     <div className="flex items-start gap-6 h-full text-slate-900 font-sans selection:bg-blue-100">
@@ -60,7 +60,7 @@ export default async function Feed() {
         </div>
 
         {/* 3. The Feed Stream */}
-        <FeedStream issues={issues} />
+        <FeedStream initialFeed={initialFeed} />
       </main>
 
       {/* --- RIGHT COLUMN: COMMUNITY CONTEXT --- */}

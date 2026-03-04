@@ -1,5 +1,5 @@
+import IssueUpdateCard from "@/app/components/issue-card/issue-update-card";
 import { Camera, CheckCircle2 } from "lucide-react";
-import IssueUpdateCard from "./issue-update-card";
 
 export default function IssueTimeline({ updates }: any) {
   return (

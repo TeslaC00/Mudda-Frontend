@@ -14,14 +14,21 @@ export interface IssueFeedDTO {
   can_user_vote: boolean;
 }
 
+export interface Page {
+  number: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+}
+
 export interface IssuePageResponse {
   content: IssueFeedDTO[];
-  page: {
-    number: number;
-    size: number;
-    totalElements: number;
-    totalPages: number;
-  };
+  page: Page;
+}
+
+export interface MappedIssuePageResponse {
+  content: IssueCardProps[];
+  page: Page;
 }
 
 export interface IssueCardProps {
@@ -37,7 +44,7 @@ export interface IssueCardProps {
   authorImageUrl: string | null;
   createdAt: string;
   status: "OPEN" | "PENDING" | "RESOLVED" | "CLOSED";
-  isResolved: boolean;
+  isResolved: boolean; // TODO: remove this
   severity: string | number;
 
   // Metrics
@@ -49,10 +56,12 @@ export interface IssueCardProps {
   address: string;
   hasVoted: boolean;
   canVote: boolean;
+  following: boolean; // TODO: add to backend API
 
   // Actions
-  onCommentClick?: () => void;
-  isDetail?: boolean;
+  onCommentClick?: () => void; // TODO: remove this
+  isDetail?: boolean; // TODO: remove this
+  // TODO: inject issue detail dto props
 }
 
 //#endregion
@@ -83,18 +92,13 @@ export interface IssueDetailData extends IssueCardProps {
 
 export interface CommentPageResponse {
   content: CommentDTO[];
-  page: {
-    number: number;
-    size: number;
-    totalElements: number;
-    totalPages: number;
-  };
+  page: Page;
 }
 
 export interface CommentDTO {
   comment_id: number;
   text: string;
-  author_id: number;
+  author_id: number; // TODO: not utilized
   issue_id: number; // TODO: not utilized
   like_count: number;
   reply_count: number;
@@ -119,6 +123,11 @@ export interface CommentData {
   canDelete: boolean;
 }
 
+export interface MappedCommentPageResponse {
+  content: CommentData[];
+  page: Page;
+}
+
 export interface ReplyDTO {
   reply_id: number;
   text: string;
@@ -134,12 +143,7 @@ export interface ReplyDTO {
 
 export interface ReplyPageResponse {
   content: ReplyDTO[];
-  page: {
-    number: number;
-    size: number;
-    totalElements: number;
-    totalPages: number;
-  };
+  page: Page;
 }
 
 //#endregion

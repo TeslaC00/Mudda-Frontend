@@ -1,3 +1,4 @@
+// TODO: use severity badge for badges in issue cards and wrap in card action
 export default function getSeverityBadge(severity: string | number) {
   const sev = String(severity).toLowerCase();
 

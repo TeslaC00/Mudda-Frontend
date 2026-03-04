@@ -4,17 +4,32 @@ import {
   adaptIssueDetailDTO,
   adaptIssueFeedDTO,
 } from "./adapter";
-import { CommentPageResponse, IssueCardProps, IssuePageResponse } from "./type";
+import {
+  CommentPageResponse,
+  IssuePageResponse,
+  MappedIssuePageResponse,
+} from "./type";
 import { CommentData, IssueDetailData, IssueDetailDTO } from "./type";
 
-export async function getIssueFeed(): Promise<IssueCardProps[]> {
+export async function getIssueFeed(): Promise<MappedIssuePageResponse> {
   try {
     const data = await apiServer.get<IssuePageResponse>("api/v1/issues");
 
-    return data.content.map(adaptIssueFeedDTO);
+    return {
+      page: data.page,
+      content: data.content.map(adaptIssueFeedDTO),
+    };
   } catch (error) {
     console.error("Error fetching feed:", error);
-    return [];
+    return {
+      page: {
+        number: 0,
+        size: 0,
+        totalElements: 0,
+        totalPages: 0,
+      },
+      content: [],
+    };
   }
 }
 
