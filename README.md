@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Mudda-Frontend
 
-## Getting Started
+A social media like feed for project Mudda to show civic issues more like social posts.
 
-First, run the development server:
+Shows feed fetched by pages automatically.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Loads comments with 1 Level of reply nesting.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Inspired by Twitter UI design
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Hoping to work on it more >-<
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+Created using NextJS, Bun, TypeScript (TS), Tailwind, Shadcn
 
-To learn more about Next.js, take a look at the following resources:
+I love type safety so using TS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Images
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Feed
 
-## Deploy on Vercel
+![Feed](images/feed.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Feed Continues
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Feed continues](images/feed3.png)
+
+#### Comment Section
+
+![Comment section](images/comment.png)
+
+#### Reply Section
+
+![Reply section](images/reply.png)

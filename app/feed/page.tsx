@@ -21,7 +21,7 @@ export default async function Feed() {
             <h2 className="text-lg font-bold text-slate-800">Home Feed</h2>
           </div>
 
-          {/* The Tabs You Liked */}
+          {/* Quick Area Filtering Tabs */}
           <div className="flex w-full px-2">
             <TabButton text="Nearby" active />
             <TabButton text="Trending" />
