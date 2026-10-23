@@ -4,8 +4,8 @@ import { AccountInfo } from "../types/user";
 
 export function useUser() {
   const { data, error, mutate, isLoading } = useSWR(
-    "account/me",
-    () => apiClient.get<AccountInfo>("account/me"),
+    "api/v1/account/me",
+    () => apiClient.get<AccountInfo>("api/v1/account/me"),
     {
       revalidateOnFocus: false,
       refreshInterval: 60000, // 1 minute

@@ -12,7 +12,9 @@ async function getInitialUser(): Promise<MuddaUserInfo> {
   };
 
   try {
-    const response = await apiServer.get<{ username: string }>("account/me");
+    const response = await apiServer.get<{ username: string }>(
+      "api/v1/account/me",
+    );
     return {
       username: response.username,
       profileImage: "",
